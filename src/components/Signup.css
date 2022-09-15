@@ -13,3 +13,20 @@ height: calc(100% - 73px);
 height: 100%;
 }
 }
+#abc{
+    color:red;
+}
+#bg{
+    color:green;
+}
+#abc ~ span{
+    display: block;
+}
+span{
+    font-size: 15px;
+    padding: 3px;
+    color: red;
+    margin-left: 10px;
+    display: none;
+}
+

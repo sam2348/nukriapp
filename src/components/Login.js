@@ -1,11 +1,32 @@
-import React,{useRef} from 'react'
+import React,{useState} from 'react'
+import './Login.css'
 import photo from './photo.jpg'
 import {NavLink} from 'react-router-dom';
 
 const Login = () => {
-    const ref = useRef();
-    const inputChange =()=>{
-        ref.current.style.backgruondColor = "red";
+    const [bgcolor,setBgcolor]=useState('');
+    const [border,setBorder]=useState('');
+
+    const EmailHandler =(event)=>{
+        var regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if (regEx.test(event.target.value) === false) {
+            setBgcolor('abc')
+        } else {
+            setBgcolor('bg')
+            
+        }  
+    }
+    const PasswordHandler =(event)=>{
+        var regEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
+        if (regEx.test(event.target.value) === false) {
+            setBorder('abc')
+        } else {
+            setBorder('bg')
+            
+        }  
+    }
+    const LoginFormSubmit = () => {
+        
     }
   return (
     <div>
@@ -16,16 +37,19 @@ const Login = () => {
                 <img src={photo} width={550}/>
             </div>
             <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1 border-end border-bottom border-2 rounded-5 pb-3">
-                <form>
+                <form onSubmit={LoginFormSubmit}>
                 {/* Email input */}
-                <div className="form-outline mb-4">
-                    <input type="email" ref={ref} id="form3Example3" className="form-control form-control-lg" 
-                     placeholder="Enter a valid email address" onClick={inputChange} required />
+                <div className="form-outline mb-3">
+                    <input type="email" id={bgcolor} className="form-control form-control-lg"
+                     placeholder="Enter a valid email address" onChange={EmailHandler} required />
+                     <span>Enter Vaild Email Address?</span>
                     <label className="form-label" htmlFor="form3Example3">Email address</label>
                 </div>
                 {/* Password input */}
                 <div className="form-outline mb-3">
-                    <input type="password" id="form3Example4" className="form-control form-control-lg" placeholder="Enter password" required />
+                    <input type="password" id={border} className="form-control form-control-lg" 
+                    placeholder="Enter password" minLength={8} onChange={PasswordHandler} required />
+                    <span>Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character?</span>
                     <label className="form-label" htmlFor="form3Example4">Password</label>
                 </div>
                 <div className="d-flex justify-content-between align-items-center">
