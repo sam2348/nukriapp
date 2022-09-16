@@ -8,6 +8,8 @@ const Signup = () => {
     const [email,setEmail]=useState('');
     const [password,setPassword]=useState('');
     const [confirmPassword,setConfirmPassword]=useState('');
+    const [matchPassword,setMatchPassword]=useState()
+
 
     const FirstNameHandler =(event)=>{
         var regEx = /^[a-zA-Z ]+$/;
@@ -34,6 +36,7 @@ const Signup = () => {
         }  
     }
     const PasswordHandler =(event)=>{
+        setMatchPassword(event.target.value)
         var regEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
         if (regEx.test(event.target.value) === false) {
             setPassword('abc')
@@ -42,10 +45,11 @@ const Signup = () => {
         }  
     }
     const ConfirmPasswordHandler =(event)=>{
-        if (password === confirmPassword) {
+        if (matchPassword !== event.target.value) {
             setConfirmPassword('abc')
-        } else {
-            setConfirmPassword('bg') 
+        } else                                                                                                                 {
+            console.log("p") 
+            setConfirmPassword('bg')
         }  
     }
     const SignupFormSubmit = () => {
@@ -86,14 +90,14 @@ const Signup = () => {
                 {/* Password input */}
                 <div className="form-outline mb-2">
                     <input type="password" className="form-control form-control-lg" placeholder="Enter password" 
-                     onChange={PasswordHandler} id={password} required />
+                     onChange={PasswordHandler} id={password} required value={matchPassword} name="password" />
                      <span>Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character?</span>                    
                      <label className="form-label" htmlFor="form3Example4">Password</label>
                 </div>
                 {/* comfirm Password input */}
                 <div className="form-outline mb-2">
                     <input type="password" className="form-control form-control-lg" placeholder="Enter password" 
-                     onChange={ConfirmPasswordHandler} id={confirmPassword} required />
+                     onChange={ConfirmPasswordHandler} id={confirmPassword} required name="cpassword" />
                      <span>Password Not Match?</span>
                     <label className="form-label" htmlFor="form3Example4">Confirm Password</label>
                 </div>

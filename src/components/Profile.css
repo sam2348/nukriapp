@@ -1,0 +1,77 @@
+.Profile {
+  background:linear-gradient(90deg, rgb(31, 31, 253) 24%, rgb(32, 252, 241) 100%, rgb(28, 28, 255) 100%);
+  padding: 100px;
+}
+.form-control:focus {
+  box-shadow: none;
+  border-color: blue;
+}
+.profile-button {
+  background: #215ebe;
+  box-shadow: none;
+  border: none;
+}
+.profile-button:hover {
+  background: blue;
+}
+.profile-button:focus {
+  background: blue;
+  box-shadow: none;
+}
+.profile-button:active {
+  background: #0000ff;
+  box-shadow: none;
+}
+.back:hover {
+  color: blue;
+  cursor: pointer;
+}
+.labels {
+  font-size: 11px;
+}
+.add-experience:hover {
+  background: #ba68c8;
+  color: #fff;
+  cursor: pointer;
+  border: solid 1px #ba68c8;
+}
+
+#sidebar-wrapper {
+    left: 280px;
+    width: 0;
+    height: 100%;
+    margin-left: -300px;
+    background: #1a1a1a;
+}
+.sidebar-nav {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    width: 100px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: black;
+    left: -15px;
+    border-radius: ;
+}
+
+.sidebar-nav li {
+    position: relative; 
+    line-height: 20px;
+    display: inline-block;
+    width: 100%;
+    background-color: black;
+}
+.sidebar-nav li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px 10px 30px;    
+}
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 20px;
+    line-height: 44px;
+}
+

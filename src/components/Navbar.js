@@ -6,7 +6,7 @@ const Navbar = () => {
     <div>
   <nav className="navbar navbar-dark bg-dark fixed-top">
    <div className="container-fluid">
-    <NavLink className="navbar-brand fs-3" to="/Try">Offcanvas</NavLink>
+    <NavLink className="navbar-brand fs-3" to="/">Offcanvas</NavLink>
     <button className="navbar-toggler text-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
       <span className="navbar-toggler-icon" />
     </button>
